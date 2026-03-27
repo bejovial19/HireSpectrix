@@ -1,11 +1,11 @@
-/* Reset */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body - Modern Gradient */
+/* ===== BODY (GRADIENT BACKGROUND) ===== */
 body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
@@ -15,7 +15,6 @@ body {
     align-items: center;
     min-height: 100vh;
 
-    /* subtle animation */
     background-size: 200% 200%;
     animation: gradientMove 8s ease infinite;
 }
@@ -27,7 +26,7 @@ body {
     100% { background-position: left; }
 }
 
-/* Container */
+/* ===== CONTAINER ===== */
 .container {
     width: 90%;
     max-width: 460px;
@@ -36,7 +35,6 @@ body {
     border-radius: 14px;
 
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-
     animation: fadeIn 0.6s ease-in-out;
 }
 
@@ -52,12 +50,23 @@ body {
     }
 }
 
-/* Headings */
+/* ===== HEADINGS ===== */
+h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 10px;
+}
+
 h2 {
     text-align: center;
     color: #333;
 }
 
+h3 {
+    color: #333;
+}
+
+/* Subtitle */
 .subtitle {
     text-align: center;
     font-size: 14px;
@@ -65,7 +74,7 @@ h2 {
     margin-bottom: 18px;
 }
 
-/* Labels */
+/* ===== LABELS ===== */
 label {
     display: block;
     margin-top: 12px;
@@ -73,7 +82,7 @@ label {
     color: #444;
 }
 
-/* Inputs */
+/* ===== INPUT FIELDS ===== */
 input, textarea {
     width: 100%;
     padding: 10px;
@@ -97,12 +106,12 @@ input:hover, textarea:hover {
     border-color: #888;
 }
 
-/* Fix Textarea */
+/* Textarea Fix */
 textarea {
     resize: none;
 }
 
-/* Radio Buttons */
+/* ===== RADIO BUTTONS ===== */
 .radio-group {
     margin-top: 10px;
     display: flex;
@@ -117,7 +126,7 @@ textarea {
     cursor: pointer;
 }
 
-/* Button */
+/* ===== BUTTON ===== */
 button {
     width: 100%;
     padding: 12px;
@@ -146,12 +155,47 @@ button:active {
     transform: scale(0.97);
 }
 
-/* Result Colors */
-.safe { color: #28a745; }
-.medium { color: orange; }
-.high { color: red; }
+/* ===== HOME PAGE ===== */
+.home {
+    text-align: center;
+}
 
-/* Risk Meter */
+.home button {
+    width: 60%;
+}
+
+/* ===== TIPS SECTION ===== */
+.tips {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.tips ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.tips li {
+    margin-bottom: 8px;
+}
+
+/* ===== RESULT COLORS ===== */
+.safe {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.medium {
+    color: orange;
+    font-weight: bold;
+}
+
+.high {
+    color: red;
+    font-weight: bold;
+}
+
+/* ===== RISK METER ===== */
 .meter-container {
     width: 100%;
     height: 20px;
@@ -166,4 +210,9 @@ button:active {
     width: 0%;
     background: linear-gradient(to right, green, red);
     transition: width 0.5s ease;
+}
+
+/* ===== LINKS (for button link in index) ===== */
+a {
+    text-decoration: none;
 }
