@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Analysis Result</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* ===== METER ===== */
+    .meter-container {
+        width: 100%;
+        height: 25px;
+        background: #eee;
+        border-radius: 15px;
+        margin: 10px 0 20px 0;
+        overflow: hidden;
+    }
+
+    .meter {
+        height: 100%;
+        width: 0%;
+        border-radius: 15px;
+        background: linear-gradient(90deg, green, yellow, red);
+        transition: width 2s ease-in-out;
+    }
+
+    #riskText {
+        text-align: center;
+        font-weight: bold;
+        font-size: 22px;
+        margin-bottom: 5px;
+        transition: color 2s ease-in-out;
+    }
+
+    #riskPercentText {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 18px;
+        transition: color 2s ease-in-out;
+    }
+
+    #reasonsContainer, #tipsContainer {
+        margin-top: 20px;
+    }
+
+    #reasonsContainer ul, #tipsContainer ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-top: 5px;
+    }
+
+    #reasonsContainer li, #tipsContainer li {
+        margin-bottom: 8px;
+        color: #333;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* ===== BUTTON ===== */
+    .analyze-again-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        max-width: 250px;
+        margin: 30px auto 0;
+        padding: 12px 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        line-height: 1;
+        transition: all 0.3s ease;
+    }
+
+    .analyze-again-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .analyze-again-btn:active {
+        transform: scale(0.97);
+    }
+
+    @media (max-width: 500px) {
+        .analyze-again-btn {
+            width: 90%;
+            font-size: 14px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">Hire<span>Spectrix</span></div>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Job Analysis Result</h2>
+
+    <!-- Fraud Level Text -->
+    <p id="riskText"></p>
+
+    <!-- Risk Meter -->
+    <div class="meter-container">
+        <div class="meter" id="riskMeter"></div>
+    </div>
+
+    <!-- Fraud Percentage -->
+    <p id="riskPercentText"></p>
+
+    <!-- Reasons -->
+    <div id="reasonsContainer">
+        <h3>Reasons:</h3>
+        <ul id="reasonsList"></ul>
+    </div>
+
+    <!-- Tips -->
+    <div id="tipsContainer">
+        <h3>Tips to Avoid Job Scams:</h3>
+        <ul>
+            <li>Never pay registration fees for a job</li>
+            <li>Verify the company's official website</li>
+            <li>Avoid emails from free domains (gmail, yahoo)</li>
+            <li>Research company reviews online</li>
+        </ul>
+    </div>
+
+    <!-- Analyze Another Job Button -->
+    <a href="analyze.html" class="analyze-again-btn">Analyze Another Job</a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const risk = localStorage.getItem("risk");
+    const riskClass = localStorage.getItem("riskClass");
+    const reasons = JSON.parse(localStorage.getItem("reasons") || "[]");
+    const score = parseInt(localStorage.getItem("score")) || 0;
+
+    const riskPercent = Math.min(Math.round((score/9)*100), 100);
+
+    const riskText = document.getElementById("riskText");
+    const meter = document.getElementById("riskMeter");
+    const riskPercentText = document.getElementById("riskPercentText");
+    const reasonsList = document.getElementById("reasonsList");
+
+    // Set Risk Text
+    riskText.innerText = `Job Risk Level: ${risk} (${score}/9)`;
+    riskPercentText.innerText = `Fraud Percentage: ${riskPercent}%`;
+
+    // Set Text Color based on main risk class
+    let mainColor = "green";
+    if(riskClass === "safe") mainColor = "green";
+    else if(riskClass === "medium") mainColor = "orange";
+    else if(riskClass === "high") mainColor = "red";
+
+    riskText.style.color = mainColor;
+    riskPercentText.style.color = mainColor;
+
+    // Animate Meter Width
+    meter.style.width = "0%";
+    setTimeout(() => {
+        meter.style.width = riskPercent + "%";
+    }, 100);
+
+    // Populate reasons
+    reasons.forEach(r => {
+        const li = document.createElement("li");
+        li.innerText = r;
+        reasonsList.appendChild(li);
+    });
+
+});
+</script>
+
+</body>
+</html>

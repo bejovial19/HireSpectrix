@@ -9,17 +9,14 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
-
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
     background-size: 200% 200%;
     animation: gradientMove 8s ease infinite;
 }
 
-/* Background Animation */
 @keyframes gradientMove {
     0% { background-position: left; }
     50% { background-position: right; }
@@ -31,10 +28,13 @@ body {
     position: fixed;
     top: 20px;
     left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     z-index: 1000;
 }
 
-/* LOGO */
 .logo {
     font-size: 22px;
     font-weight: bold;
@@ -46,6 +46,19 @@ body {
     color: #ffd700;
 }
 
+.nav a {
+    margin-left: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #ffd700;
+}
+
 /* ===== CONTAINER ===== */
 .container {
     width: 90%;
@@ -53,46 +66,31 @@ body {
     background: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 14px;
-
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     animation: fadeIn 0.6s ease-in-out;
-
-    backdrop-filter: blur(6px); /* modern glass effect */
+    backdrop-filter: blur(6px);
+    margin-top: 100px; /* space from fixed header */
 }
 
-/* Fade Animation */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== TEXT ===== */
-h1 {
+h1, h2, h3 {
     text-align: center;
     color: #222;
-    margin-bottom: 10px;
 }
 
-h2 {
-    text-align: center;
-    color: #333;
-}
-
-h3 {
-    color: #333;
-}
+h2 { color: #333; }
+h3 { color: #333; }
 
 .subtitle {
     text-align: center;
     font-size: 14px;
     color: #555;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 /* ===== LABELS ===== */
@@ -104,33 +102,43 @@ label {
 }
 
 /* ===== INPUTS ===== */
+input, textarea, select {
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
 input, textarea {
     width: 100%;
     padding: 10px;
     margin-top: 6px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    font-size: 14px;
-    font-family: inherit;
-
-    transition: all 0.3s ease;
 }
 
-/* Focus */
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
     border-color: #667eea;
     box-shadow: 0 0 8px rgba(102,126,234,0.4);
     outline: none;
 }
 
-/* Hover */
-input:hover, textarea:hover {
-    border-color: #888;
+input:hover, textarea:hover, select:hover { border-color: #888; }
+
+textarea { resize: none; }
+
+/* ===== SALARY INPUT + CURRENCY ===== */
+.salary-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-/* Textarea */
-textarea {
-    resize: none;
+.salary-input input { flex: 2; }
+.salary-input select { 
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 /* ===== RADIO ===== */
@@ -153,69 +161,50 @@ button {
     width: 60%;
     padding: 12px;
     margin: 20px auto 0;
-
     display: block;
-
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     border: none;
     border-radius: 8px;
-
     font-weight: bold;
     letter-spacing: 1px;
     cursor: pointer;
-
     transition: all 0.3s ease;
 }
 
-/* Hover */
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-/* Click */
-button:active {
-    transform: scale(0.97);
+button:active { transform: scale(0.97); }
+
+/* ===== HOME PAGE BUTTON FIX ===== */
+.container.home a {
+    display: block;
+    text-decoration: none; /* Remove underline */
+    width: 100%;
+    text-align: center;    /* Center the button inside the link */
 }
 
-/* ===== HOME ===== */
-.home {
+.container.home button {
+    display: inline-block; /* Keep text in single line */
+    width: auto;           /* Fit content width */
+    padding: 12px 25px;    /* Horizontal padding */
+    margin: 0 auto;
+    font-size: 16px;
+    letter-spacing: 1px;
     text-align: center;
 }
 
-/* ===== TIPS ===== */
-.tips {
-    margin-top: 30px;
-    text-align: left;
+/* ===== RESULT PAGE ===== */
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.tips ul {
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-.tips li {
-    margin-bottom: 8px;
-}
-
-/* ===== RESULT COLORS ===== */
-.safe {
-    color: #28a745;
-    font-weight: bold;
-}
-
-.medium {
-    color: orange;
-    font-weight: bold;
-}
-
-.high {
-    color: red;
-    font-weight: bold;
-}
-
-/* ===== RISK METER ===== */
 .meter-container {
     width: 100%;
     height: 20px;
@@ -232,24 +221,27 @@ button:active {
     transition: width 0.5s ease;
 }
 
-/* ===== LINKS ===== */
-a {
-    text-decoration: none;
+.reasons {
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* Align tips like reasons */
+.tips {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.tips ul, .reasons ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 500px) {
-    .container {
-        width: 95%;
-        padding: 20px;
-    }
-
-    button {
-        width: 100%;
-    }
-
-    .header {
-        left: 15px;
-        top: 15px;
-    }
+    .container { width: 95%; padding: 20px; margin-top: 80px; }
+    button { width: 100%; }
+    .header { left: 15px; right: 15px; top: 15px; }
+    .nav a { margin-left: 10px; font-size: 12px; }
+    .salary-input { flex-direction: column; gap: 6px; }
 }
