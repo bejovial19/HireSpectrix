@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyze Job</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Job Analysis Form</h2>
+
+        <form onsubmit="event.preventDefault(); analyzeJob();">
+
+            <!-- Job Title -->
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" placeholder="Enter job title" required>
+
+            <!-- Company Name -->
+            <label for="company">Company Name:</label>
+            <input type="text" id="company" placeholder="Enter company name" required>
+
+            <!-- Salary -->
+            <label for="salary">Salary Offered (per month):</label>
+            <input type="number" id="salary" placeholder="Enter salary" required>
+
+            <!-- Email -->
+            <label for="email">Contact Email:</label>
+            <input type="email" id="email" placeholder="Enter email" required>
+
+            <!-- Description -->
+            <label for="description">Job Description:</label>
+            <textarea id="description" rows="4" placeholder="Enter job details" required></textarea>
+
+            <!-- Radio Buttons -->
+            <label>Registration Fee Asked?</label>
+            <div class="radio-group">
+                <input type="radio" name="fee" value="yes" required> Yes
+                <input type="radio" name="fee" value="no"> No
+            </div>
+
+            <!-- Submit -->
+            <button type="submit">Analyze Job</button>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
