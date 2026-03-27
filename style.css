@@ -1,85 +1,155 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body - Modern Gradient */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #74ebd5, #acb6e5);
-    
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+
+    /* subtle animation */
+    background-size: 200% 200%;
+    animation: gradientMove 8s ease infinite;
 }
 
+/* Background Animation */
+@keyframes gradientMove {
+    0% { background-position: left; }
+    50% { background-position: right; }
+    100% { background-position: left; }
+}
+
+/* Container */
 .container {
-    width: 40%;
-    max-width: 450px;
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 460px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+    animation: fadeIn 0.6s ease-in-out;
 }
 
+/* Smooth Entry */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Headings */
 h2 {
     text-align: center;
+    color: #333;
 }
 
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 18px;
+}
+
+/* Labels */
 label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #444;
 }
 
+/* Inputs */
 input, textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
-    border-radius: 6px;
+    margin-top: 6px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    transition: 0.3s;
+    font-size: 14px;
+
+    transition: all 0.3s ease;
 }
 
+/* Focus Effect */
 input:focus, textarea:focus {
-    border-color: #28a745;
+    border-color: #667eea;
+    box-shadow: 0 0 8px rgba(102,126,234,0.4);
     outline: none;
 }
 
+/* Hover Effect */
+input:hover, textarea:hover {
+    border-color: #888;
+}
+
+/* Fix Textarea */
+textarea {
+    resize: none;
+}
+
+/* Radio Buttons */
 .radio-group {
     margin-top: 10px;
+    display: flex;
+    gap: 20px;
 }
 
 .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-weight: normal;
-    margin-right: 10px;
+    cursor: pointer;
 }
 
+/* Button */
 button {
     width: 100%;
     padding: 12px;
-    margin-top: 15px;
-    background-color: #28a745;
+    margin-top: 20px;
+
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: 8px;
+
     font-weight: bold;
-    transition: 0.3s;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
 }
 
+/* Hover */
 button:hover {
-    background-color: #218838;
-    transform: scale(1.03);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Click */
+button:active {
+    transform: scale(0.97);
 }
 
 /* Result Colors */
-.safe {
-    color: green;
-}
-
-.medium {
-    color: orange;
-}
-
-.high {
-    color: red;
-}
+.safe { color: #28a745; }
+.medium { color: orange; }
+.high { color: red; }
 
 /* Risk Meter */
 .meter-container {
@@ -94,6 +164,6 @@ button:hover {
 .meter {
     height: 100%;
     width: 0%;
-    background: red;
-    transition: 0.5s;
+    background: linear-gradient(to right, green, red);
+    transition: width 0.5s ease;
 }
