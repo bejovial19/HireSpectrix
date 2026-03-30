@@ -288,3 +288,391 @@ button:active { transform: scale(0.97); }
     .tips-section h3 { font-size: 1.3rem; }
     .tips-section li { font-size: 1rem; }
 }
+
+/* ===== ABOUT PAGE CENTERED ===== */
+.about-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 120px auto 50px;
+    text-align: center; /* Center all text */
+    color: white;
+}
+
+.about-container h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.about-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #eee;
+}
+
+/* Cards */
+.about-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 25px;
+    margin: 20px auto; /* Auto left/right to center */
+    text-align: center; /* Center content inside cards */
+    max-width: 700px; /* Optional: limit card width */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transition: 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card h2 {
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.about-card p {
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+.about-card ul {
+    padding-left: 20px;
+    display: inline-block; /* Keep bullets aligned and centered */
+    text-align: left;
+}
+
+.about-card li {
+    margin-bottom: 8px;
+    color: #f0f0f0;
+}
+
+/* ===== CONTACT PAGE ===== */
+.contact-container {
+    max-width: 600px;
+    margin-top: 120px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.contact-container h2 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.contact-container .subtitle {
+    color: #eee;
+    margin-bottom: 25px;
+}
+
+.contact-container label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 8px rgba(102,126,234,0.4);
+    outline: none;
+}
+
+.contact-container button {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #e6c200, #d18c2a);
+    color: white;
+    width: 60%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.contact-container button:active {
+    transform: scale(0.97);
+}
+
+.contact-message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ffd700;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ===== CONTACT MESSAGE ANIMATION ===== */
+.contact-message {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+/* Fade In */
+.show-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade Out */
+.hide-message {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* ===== SUPPORT PAGE ===== */
+.support-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 120px auto 50px;
+    text-align: center;
+    color: white;
+}
+
+.support-container h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.support-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #eee;
+}
+
+/* Cards */
+.support-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transition: 0.3s ease;
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+}
+
+.support-card h2 {
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.support-card p {
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.support-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #e6c200, #d18c2a);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.support-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== RATING STARS ===== */
+.rating-stars {
+    font-size: 35px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.rating-stars span {
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.rating-stars span:hover,
+.rating-stars span.active {
+    color: #ffd700;
+}
+
+#ratingText {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #eee;
+}
+
+.rating-stars span.active {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+}
+
+/* ===== ANALYZE PAGE (GLASS UI) ===== */
+.analyze-container {
+    max-width: 600px;
+    margin-top: 120px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 30px;
+
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Fix text colors inside */
+.analyze-container h2 {
+    color: #ffd700;
+}
+
+.analyze-container .subtitle {
+    color: #eee;
+}
+
+/* Labels */
+.analyze-container label {
+    color: #fff;
+}
+
+/* Inputs */
+.analyze-container input,
+.analyze-container textarea,
+.analyze-container select {
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
+}
+
+/* Button stays same but slightly enhanced */
+.analyze-container button {
+    background: linear-gradient(135deg, #e6c200, #d18c2a);
+}
+
+.analyze-container input,
+.analyze-container textarea,
+.analyze-container select {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== RESULT PAGE GLASS UI ===== */
+.result-glass {
+    max-width: 600px;
+    margin-top: 120px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 30px;
+
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+/* Heading */
+.result-glass h2 {
+    color: #ffd700;
+}
+
+/* Risk Text */
+#riskText {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Percentage */
+#riskPercentText {
+    font-size: 18px;
+}
+
+/* Reasons & Tips headings */
+.result-glass h3 {
+    color: #ffd700;
+    margin-top: 15px;
+}
+
+/* Lists */
+.result-glass ul {
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* List items */
+.result-glass li {
+    color: #f0f0f0;
+}
+
+/* Risk Text Badge */
+#riskText {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Dynamic backgrounds */
+.safe-bg {
+    background: linear-gradient(135deg, #00c853, #43a047);
+}
+
+.medium-bg {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+.high-bg {
+    background: linear-gradient(135deg, #ff5252, #d32f2f);
+}
+
+/* Team links styling */
+.about-card a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.about-card a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.team-note {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 0px;
+}
