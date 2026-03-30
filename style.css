@@ -9,12 +9,10 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     background-size: 200% 200%;
     animation: gradientMove 8s ease infinite;
+    min-height: 100vh;
+    color: white;
 }
 
 @keyframes gradientMove {
@@ -46,8 +44,12 @@ body {
     color: #ffd700;
 }
 
+.nav {
+    display: flex;
+    gap: 25px;
+}
+
 .nav a {
-    margin-left: 20px;
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -59,7 +61,83 @@ body {
     color: #ffd700;
 }
 
-/* ===== CONTAINER ===== */
+/* ===== HERO & TIPS ===== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 90vh;
+    padding: 120px 20px 20px 20px; /* pushed down hero content */
+    gap: 25px;
+}
+
+.hero h1 {
+    margin: 0;
+    line-height: 1.2;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffd700; /* Spectrix gold */
+}
+
+.hero .subtitle {
+    margin: 0;
+    max-width: 700px;
+    line-height: 1.5;
+    font-size: 1.8rem;
+    color: #f0f0f0;
+}
+
+.hero a.hero-btn {
+    display: inline-block;
+    padding: 16px 45px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #e6c200, #d18c2a); /* dimmed Spectrix gold */
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.hero a.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.hero a.hero-btn:active {
+    transform: scale(0.97);
+}
+
+/* ===== TIPS SECTION CENTERED ===== */
+.tips-section {
+    margin-top: 15px; /* just below button */
+    text-align: center; /* center horizontally */
+    max-width: 700px;
+}
+
+.tips-section h3 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.tips-section ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 1.3rem;
+    display: inline-block; /* keeps list centered */
+    text-align: left; /* bullets aligned */
+}
+
+.tips-section li {
+    margin-bottom: 10px;
+}
+
+/* ===== OTHER CONTAINERS & BUTTONS (UNCHANGED) ===== */
 .container {
     width: 90%;
     max-width: 460px;
@@ -69,7 +147,8 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     animation: fadeIn 0.6s ease-in-out;
     backdrop-filter: blur(6px);
-    margin-top: 100px; /* space from fixed header */
+    margin: 100px auto 50px;
+    color: #222;
 }
 
 @keyframes fadeIn {
@@ -77,31 +156,22 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== TEXT ===== */
-h1, h2, h3 {
+h2{
     text-align: center;
-    color: #222;
 }
-
-h2 { color: #333; }
-h3 { color: #333; }
 
 .subtitle {
     text-align: center;
     font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
+    color: #100;
+    margin-bottom: 10px;
 }
 
-/* ===== LABELS ===== */
-label {
-    display: block;
-    margin-top: 12px;
-    font-weight: 600;
-    color: #444;
+label, input, textarea, select, .salary-input, .radio-group, button {
+    margin: 0 auto;
+    text-align: left;
 }
 
-/* ===== INPUTS ===== */
 input, textarea, select {
     font-family: inherit;
     font-size: 14px;
@@ -122,41 +192,15 @@ input:focus, textarea:focus, select:focus {
     outline: none;
 }
 
-input:hover, textarea:hover, select:hover { border-color: #888; }
-
 textarea { resize: none; }
 
-/* ===== SALARY INPUT + CURRENCY ===== */
-.salary-input {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
+.salary-input { display: flex; gap: 10px; align-items: center; }
 .salary-input input { flex: 2; }
-.salary-input select { 
-    flex: 1;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
+.salary-input select { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #ccc; }
 
-/* ===== RADIO ===== */
-.radio-group {
-    margin-top: 10px;
-    display: flex;
-    gap: 20px;
-}
+.radio-group { margin-top: 10px; display: flex; gap: 20px; }
+.radio-group label { display: flex; align-items: center; gap: 6px; font-weight: normal; cursor: pointer; }
 
-.radio-group label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: normal;
-    cursor: pointer;
-}
-
-/* ===== BUTTON ===== */
 button {
     width: 60%;
     padding: 12px;
@@ -170,6 +214,7 @@ button {
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 button:hover {
@@ -178,24 +223,6 @@ button:hover {
 }
 
 button:active { transform: scale(0.97); }
-
-/* ===== HOME PAGE BUTTON FIX ===== */
-.container.home a {
-    display: block;
-    text-decoration: none; /* Remove underline */
-    width: 100%;
-    text-align: center;    /* Center the button inside the link */
-}
-
-.container.home button {
-    display: inline-block; /* Keep text in single line */
-    width: auto;           /* Fit content width */
-    padding: 12px 25px;    /* Horizontal padding */
-    margin: 0 auto;
-    font-size: 16px;
-    letter-spacing: 1px;
-    text-align: center;
-}
 
 /* ===== RESULT PAGE ===== */
 .result-container {
@@ -226,8 +253,7 @@ button:active { transform: scale(0.97); }
     text-align: left;
 }
 
-/* Align tips like reasons */
-.tips {
+.tips, .tips-section {
     margin-top: 20px;
     text-align: left;
 }
@@ -238,10 +264,27 @@ button:active { transform: scale(0.97); }
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
-@media (max-width: 500px) {
-    .container { width: 95%; padding: 20px; margin-top: 80px; }
-    button { width: 100%; }
-    .header { left: 15px; right: 15px; top: 15px; }
-    .nav a { margin-left: 10px; font-size: 12px; }
-    .salary-input { flex-direction: column; gap: 6px; }
+@media(max-width: 1024px){
+    .hero h1 { font-size: 3rem; }
+    .hero .subtitle { font-size: 1.6rem; }
+    .hero a.hero-btn { font-size: 18px; padding: 14px 40px; }
+    .tips-section h3 { font-size: 1.8rem; }
+    .tips-section li { font-size: 1.2rem; }
+}
+
+@media(max-width: 768px){
+    .hero h1 { font-size: 2.5rem; }
+    .hero .subtitle { font-size: 1.4rem; }
+    .hero a.hero-btn { font-size: 16px; padding: 12px 35px; }
+    .tips-section h3 { font-size: 1.5rem; }
+    .tips-section li { font-size: 1.1rem; }
+}
+
+@media(max-width: 480px){
+    .hero h1 { font-size: 2rem; }
+    .hero .subtitle { font-size: 1.2rem; }
+    .hero a.hero-btn { font-size: 14px; padding: 10px 30px; }
+    .nav a { font-size: 12px; gap: 10px; }
+    .tips-section h3 { font-size: 1.3rem; }
+    .tips-section li { font-size: 1rem; }
 }
